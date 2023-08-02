@@ -1,10 +1,12 @@
 export {
-  login,
-  signup,
-  refreshToken,
   LoginResponse,
-  SignupResponse,
   RefreshResponse,
+  ResetPasswordResponse,
+  SignupResponse,
+  login,
+  refreshToken,
+  resetPassword,
+  signup,
 } from './auth.js'
 export {
   CreateRequest,

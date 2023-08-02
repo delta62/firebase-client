@@ -13,6 +13,10 @@ export interface LoginResponse {
   expires: number
 }
 
+export interface ResetPasswordResponse {
+  email: string
+}
+
 export type SignupResponse = LoginResponse
 
 export type RefreshResponse = Pick<
@@ -56,6 +60,22 @@ export let login =
     )
 
     return { ...response, expires: parseExpires(response.expiresIn) }
+  }
+
+export let resetPassword =
+  (apiKey: string) =>
+  async (email: string): Promise<ResetPasswordResponse> => {
+    let requestType = 'PASSWORD_RESET'
+    let response = await json<ResetPasswordResponse>(
+      `${ACCOUNTS_ENDPOINT}:sendOobCode?key=${apiKey}`,
+      method('POST'),
+      jsonBody({
+        email,
+        requestType,
+      })
+    )
+
+    return response
   }
 
 export let refreshToken =

@@ -5,7 +5,7 @@
 
     "jsx": "react-jsx",
 
-    "rootDir": "./src",
+    "rootDir": "./lib",
     "outDir": "dist",
 
     "sourceMap": true,
